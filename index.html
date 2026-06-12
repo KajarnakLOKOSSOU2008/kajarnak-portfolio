@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kajarnak Tech | Portfolio — Dossou Kajarnak LOKOSSOU</title>
 <meta name="description" content="Kajarnak Tech — Agence digitale et portfolio de Dossou Kajarnak LOKOSSOU. Développement Fullstack, IA, Data Science.">
+<meta name="keywords" content="Kajarnak Tech, développeur fullstack, intelligence artificielle, data science, Bénin, portfolio, web development, machine learning">
+<meta name="author" content="LOKOSSOU Dossou Kajarnak">
+<meta property="og:title" content="Kajarnak Tech | Portfolio — Dossou Kajarnak LOKOSSOU">
+<meta property="og:description" content="Développeur Fullstack & Ingénieur AI/ML/Data — Fondateur de Kajarnak Tech">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kajarnaklokossou2008.github.io/kajarnak-portfolio/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kajarnak Tech | Portfolio">
+<meta name="twitter:description" content="Développeur Fullstack & Ingénieur AI/ML/Data — Kajarnak Tech">
+<link rel="canonical" href="https://kajarnaklokossou2008.github.io/kajarnak-portfolio/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -211,6 +221,46 @@ body { font-family:'Inter',sans-serif; background:var(--bg-primary); color:var(-
 .footer-socials .social-email svg { fill:#38bdf8; }
 .footer-socials .social-email:hover { border-color:#38bdf8; background:rgba(56,189,248,0.12); box-shadow:0 6px 18px rgba(56,189,248,0.25); }
 
+/* SCROLL PROGRESS BAR */
+.scroll-progress { position:fixed; top:0; left:0; height:3px; background:var(--accent-grad); z-index:1001; transition:width 0.1s linear; border-radius:0 2px 2px 0; }
+
+/* SCROLL TO TOP */
+.scroll-top { position:fixed; bottom:30px; right:30px; width:46px; height:46px; display:flex; align-items:center; justify-content:center; background:var(--accent-grad); color:#0a0f1c; border:none; border-radius:50%; cursor:pointer; z-index:999; opacity:0; transform:translateY(20px); transition:var(--transition); box-shadow:0 4px 20px var(--accent-glow); font-size:20px; }
+.scroll-top.visible { opacity:1; transform:translateY(0); }
+.scroll-top:hover { transform:translateY(-3px); box-shadow:0 8px 30px var(--accent-glow); }
+
+/* TYPING ANIMATION */
+.typing-text { display:inline; }
+.typing-cursor { display:inline-block; width:2px; height:1.1em; background:var(--accent); margin-left:2px; animation:blink 1s step-end infinite; vertical-align:text-bottom; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* ANIMATED COUNTERS */
+.stat-number[data-count] { opacity:1; }
+
+/* TESTIMONIALS */
+.testimonials-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
+.testimonial-card { padding:28px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); position:relative; transition:var(--transition); }
+.testimonial-card:hover { border-color:rgba(56,189,248,0.25); transform:translateY(-3px); box-shadow:0 15px 40px rgba(0,0,0,0.2); }
+.testimonial-card .quote-mark { font-size:48px; line-height:1; color:var(--accent); opacity:0.3; position:absolute; top:16px; left:20px; font-family:Georgia,serif; }
+.testimonial-card p { color:var(--text-secondary); font-size:14.5px; line-height:1.8; margin-bottom:18px; position:relative; z-index:1; font-style:italic; }
+.testimonial-author { display:flex; align-items:center; gap:12px; }
+.testimonial-avatar { width:40px; height:40px; border-radius:50%; background:var(--accent-grad); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:16px; color:#0a0f1c; flex-shrink:0; }
+.testimonial-author-info .name { font-weight:600; font-size:14px; color:var(--text-primary); }
+.testimonial-author-info .role { font-size:12px; color:var(--text-muted); }
+.testimonial-stars { color:#fbbf24; font-size:13px; letter-spacing:2px; margin-bottom:14px; }
+
+/* PROJECT FILTER TABS */
+.filter-tabs { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:36px; }
+.filter-tab { padding:8px 20px; background:var(--bg-card); border:1px solid var(--border); border-radius:100px; font-size:13px; font-weight:500; color:var(--text-secondary); cursor:pointer; transition:var(--transition); font-family:inherit; }
+.filter-tab:hover { border-color:var(--accent); color:var(--accent); }
+.filter-tab.active { background:var(--accent-grad); color:#0a0f1c; border-color:transparent; }
+.project-card.hide { display:none; }
+
+/* SKILL CHIPS UPGRADE */
+.skill-chip { display:inline-flex; align-items:center; gap:8px; padding:10px 20px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-sm); font-size:14px; font-weight:500; color:var(--text-primary); transition:var(--transition); }
+.skill-chip:hover { border-color:var(--accent); background:rgba(56,189,248,0.06); transform:translateY(-2px); }
+.skill-chip svg { width:18px; height:18px; flex-shrink:0; }
+
 .reveal { opacity:0; transform:translateY(30px); transition:opacity 0.7s ease,transform 0.7s ease; }
 .reveal.visible { opacity:1; transform:translateY(0); }
 
@@ -247,6 +297,12 @@ body { font-family:'Inter',sans-serif; background:var(--bg-primary); color:var(-
 
 <!-- AGENCY TAGLINE -->
 <div class="agency-tagline">Innover &bull; D&eacute;velopper &bull; Transformer</div>
+
+<!-- SCROLL PROGRESS BAR -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTop" title="Retour en haut">&#8593;</button>
 
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
@@ -330,9 +386,9 @@ body { font-family:'Inter',sans-serif; background:var(--bg-primary); color:var(-
                 une opportunit&eacute; d'apprendre, d'innover et de livrer un travail de qualit&eacute;.
             </p>
             <div class="about-stats">
-                <div class="stat-item"><div class="stat-number">24+</div><div class="stat-label" id="statLabel1">Projets</div></div>
-                <div class="stat-item"><div class="stat-number">6</div><div class="stat-label" id="statLabel2">Services</div></div>
-                <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label" id="statLabel3">Passion</div></div>
+                <div class="stat-item"><div class="stat-number" data-count="24">0</div><div class="stat-label" id="statLabel1">Projets</div></div>
+                <div class="stat-item"><div class="stat-number" data-count="6">0</div><div class="stat-label" id="statLabel2">Services</div></div>
+                <div class="stat-item"><div class="stat-number" data-count="100">0</div><div class="stat-label" id="statLabel3">Passion</div></div>
             </div>
         </div>
         <div class="about-visual">
@@ -369,22 +425,28 @@ body { font-family:'Inter',sans-serif; background:var(--bg-primary); color:var(-
         <h2 class="section-title">Nos r&eacute;alisations</h2>
         <p class="section-desc">D&eacute;couvrez nos projets &mdash; du machine learning au d&eacute;veloppement web.</p>
     </div>
+    <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">Tous</button>
+        <button class="filter-tab" data-filter="ai">IA / ML</button>
+        <button class="filter-tab" data-filter="web">Web / Dev</button>
+        <button class="filter-tab" data-filter="data">Data Science</button>
+    </div>
     <div class="projects-grid">
-        <div class="project-card"><div class="project-header"><div class="project-icon-wrap">&#129302;</div><div class="project-links"><a href="https://github.com/KajarnakLOKOSSOU2008/KajarnakAI" target="_blank" class="project-link" title="GitHub">&#128279;</a></div></div><div class="project-body"><h3>KajarnakAI</h3><p>Plateforme de chatbots intelligents multi-mod&egrave;les (GPT-4, Claude, Mistral) avec RAG, builder visuel et int&eacute;grations WhatsApp/Telegram/Slack.</p></div><div class="project-footer"><span class="project-tag"><span class="lang-dot lang-python"></span> Python</span><span class="project-tag"><span class="lang-dot lang-typescript"></span> TypeScript</span><span class="project-tag">IA / Chatbot</span></div></div>
+        <div class="project-card" data-category="ai"><div class="project-header"><div class="project-icon-wrap">&#129302;</div><div class="project-links"><a href="https://github.com/KajarnakLOKOSSOU2008/KajarnakAI" target="_blank" class="project-link" title="GitHub">&#128279;</a></div></div><div class="project-body"><h3>KajarnakAI</h3><p>Plateforme de chatbots intelligents multi-mod&egrave;les (GPT-4, Claude, Mistral) avec RAG, builder visuel et int&eacute;grations WhatsApp/Telegram/Slack.</p></div><div class="project-footer"><span class="project-tag"><span class="lang-dot lang-python"></span> Python</span><span class="project-tag"><span class="lang-dot lang-typescript"></span> TypeScript</span><span class="project-tag">IA / Chatbot</span></div></div>
 
-        <div class="project-card"><div class="project-header"><div class="project-icon-wrap">&#127793;</div><div class="project-links"><a href="https://github.com/KajarnakLOKOSSOU2008/SmartFarm" target="_blank" class="project-link" title="GitHub">&#128279;</a></div></div><div class="project-body"><h3>SmartFarm</h3><p>Tableau de bord IoT + IA pour l'agriculture de pr&eacute;cision. D&eacute;tection de maladies (94.2%), pr&eacute;diction de rendement, irrigation intelligente.</p></div><div class="project-footer"><span class="project-tag"><span class="lang-dot lang-python"></span> Python</span><span class="project-tag">IoT / AgriTech</span><span class="project-tag">Computer Vision</span></div></div>
+        <div class="project-card" data-category="ai"><div class="project-header"><div class="project-icon-wrap">&#127793;</div><div class="project-links"><a href="https://github.com/KajarnakLOKOSSOU2008/SmartFarm" target="_blank" class="project-link" title="GitHub">&#128279;</a></div></div><div class="project-body"><h3>SmartFarm</h3><p>Tableau de bord IoT + IA pour l'agriculture de pr&eacute;cision. D&eacute;tection de maladies (94.2%), pr&eacute;diction de rendement, irrigation intelligente.</p></div><div class="project-footer"><span class="project-tag"><span class="lang-dot lang-python"></span> Python</span><span class="project-tag">IoT / AgriTech</span><span class="project-tag">Computer Vision</span></div></div>
 
-        <div class="project-card"><div class="project-header"><div class="project-icon-wrap">&#129656;</div><div class="project-links"><a href="https://github.com/KajarnakLOKOSSOU2008/MedScan-AI" target="_blank" class="project-link" title="GitHub">&#128279;</a></div></div><div class="project-body"><h3>MedScan AI</h3><p>Analyse d'images m&eacute;dicales par deep learning. D&eacute;tection pneumonie/COVID (96.1%), tumeurs IRM (93.8%), heatmap d'attention, DICOM/HIPAA.</p></div><div class="project-footer"><span class="project-tag"><span class="lang-dot lang-python"></span> PyTorch</span><span class="project-tag">Medical AI</span><span class="project-tag">Deep Learning</span></div></div>
+        <div class="project-card" data-category="ai"><div class="project-header"><div class="project-icon-wrap">&#129656;</div><div class="project-links"><a href="https://github.com/KajarnakLOKOSSOU2008/MedScan-AI" target="_blank" class="project-link" title="GitHub">&#128279;</a></div></div><div class="project-body"><h3>MedScan AI</h3><p>Analyse d'images m&eacute;dicales par deep learning. D&eacute;tection pneumonie/COVID (96.1%), tumeurs IRM (93.8%), heatmap d'attention, DICOM/HIPAA.</p></div><div class="project-footer"><span class="project-tag"><span class="lang-dot lang-python"></span> PyTorch</span><span class="project-tag">Medical AI</span><span class="project-tag">Deep Learning</span></div></div>
 
-        <div class="project-card"><div class="project-header"><div class="project-icon-wrap">&#128202;</div><div class="project-links"><a href="https://github.com/KajarnakLOKOSSOU2008/DataFlow" target="_blank" class="project-link" title="GitHub">&#128279;</a></div></div><div class="project-body"><h3>DataFlow Pro</h3><p>Plateforme no-code d'analyse de donn&eacute;es. Visualisations D3.js, insights automatiques (anomalies, tendances, corr&eacute;lations), rapports PDF.</p></div><div class="project-footer"><span class="project-tag"><span class="lang-dot lang-python"></span> Python</span><span class="project-tag"><span class="lang-dot lang-typescript"></span> TypeScript</span><span class="project-tag">Data Analytics</span></div></div>
+        <div class="project-card" data-category="data"><div class="project-header"><div class="project-icon-wrap">&#128202;</div><div class="project-links"><a href="https://github.com/KajarnakLOKOSSOU2008/DataFlow" target="_blank" class="project-link" title="GitHub">&#128279;</a></div></div><div class="project-body"><h3>DataFlow Pro</h3><p>Plateforme no-code d'analyse de donn&eacute;es. Visualisations D3.js, insights automatiques (anomalies, tendances, corr&eacute;lations), rapports PDF.</p></div><div class="project-footer"><span class="project-tag"><span class="lang-dot lang-python"></span> Python</span><span class="project-tag"><span class="lang-dot lang-typescript"></span> TypeScript</span><span class="project-tag">Data Analytics</span></div></div>
 
-        <div class="project-card"><div class="project-header"><div class="project-icon-wrap">&#128640;</div><div class="project-links"><a href="https://github.com/KajarnakLOKOSSOU2008/DevPilot" target="_blank" class="project-link" title="GitHub">&#128279;</a></div></div><div class="project-body"><h3>DevPilot</h3><p>Assistant d&eacute;veloppeur IA dans le terminal. G&eacute;n&eacute;ration de code, debug, refactoring, tests automatiques et commits intelligents.</p></div><div class="project-footer"><span class="project-tag"><span class="lang-dot lang-python"></span> Python</span><span class="project-tag">CLI / DevTools</span><span class="project-tag">GPT-4</span></div></div>
+        <div class="project-card" data-category="web"><div class="project-header"><div class="project-icon-wrap">&#128640;</div><div class="project-links"><a href="https://github.com/KajarnakLOKOSSOU2008/DevPilot" target="_blank" class="project-link" title="GitHub">&#128279;</a></div></div><div class="project-body"><h3>DevPilot</h3><p>Assistant d&eacute;veloppeur IA dans le terminal. G&eacute;n&eacute;ration de code, debug, refactoring, tests automatiques et commits intelligents.</p></div><div class="project-footer"><span class="project-tag"><span class="lang-dot lang-python"></span> Python</span><span class="project-tag">CLI / DevTools</span><span class="project-tag">GPT-4</span></div></div>
 
-        <div class="project-card"><div class="project-header"><div class="project-icon-wrap">&#128218;</div><div class="project-links"><a href="https://github.com/KajarnakLOKOSSOU2008/PyFR" target="_blank" class="project-link" title="GitHub">&#128279;</a></div></div><div class="project-body"><h3>PyFR</h3><p>Le langage Python en Fran&ccedil;ais, compatible avec tout son &eacute;cosyst&egrave;me. Rendre la programmation accessible aux francophones.</p></div><div class="project-footer"><span class="project-tag"><span class="lang-dot lang-python"></span> Python</span><span class="project-tag">Langage</span></div></div>
+        <div class="project-card" data-category="web"><div class="project-header"><div class="project-icon-wrap">&#128218;</div><div class="project-links"><a href="https://github.com/KajarnakLOKOSSOU2008/PyFR" target="_blank" class="project-link" title="GitHub">&#128279;</a></div></div><div class="project-body"><h3>PyFR</h3><p>Le langage Python en Fran&ccedil;ais, compatible avec tout son &eacute;cosyst&egrave;me. Rendre la programmation accessible aux francophones.</p></div><div class="project-footer"><span class="project-tag"><span class="lang-dot lang-python"></span> Python</span><span class="project-tag">Langage</span></div></div>
 
-        <div class="project-card"><div class="project-header"><div class="project-icon-wrap">&#129504;</div><div class="project-links"><a href="https://github.com/KajarnakLOKOSSOU2008/artificial_brain" target="_blank" class="project-link" title="GitHub">&#128279;</a></div></div><div class="project-body"><h3>Artificial Brain</h3><p>Syst&egrave;me intelligent imitant le cerveau humain. R&eacute;seaux de neurones biologiquement inspir&eacute;s.</p></div><div class="project-footer"><span class="project-tag"><span class="lang-dot lang-python"></span> Python</span><span class="project-tag">Neuroscience IA</span></div></div>
+        <div class="project-card" data-category="ai"><div class="project-header"><div class="project-icon-wrap">&#129504;</div><div class="project-links"><a href="https://github.com/KajarnakLOKOSSOU2008/artificial_brain" target="_blank" class="project-link" title="GitHub">&#128279;</a></div></div><div class="project-body"><h3>Artificial Brain</h3><p>Syst&egrave;me intelligent imitant le cerveau humain. R&eacute;seaux de neurones biologiquement inspir&eacute;s.</p></div><div class="project-footer"><span class="project-tag"><span class="lang-dot lang-python"></span> Python</span><span class="project-tag">Neuroscience IA</span></div></div>
 
-        <div class="project-card"><div class="project-header"><div class="project-icon-wrap">&#128663;</div><div class="project-links"><a href="https://github.com/KajarnakLOKOSSOU2008/Pr-diction-du-prix-de-la-voiture-" target="_blank" class="project-link" title="GitHub">&#128279;</a></div></div><div class="project-body"><h3>Pr&eacute;diction Prix Voiture</h3><p>Mod&eacute;lisation pr&eacute;dictive par r&eacute;gression lin&eacute;aire pour estimer les prix automobiles.</p></div><div class="project-footer"><span class="project-tag"><span class="lang-dot lang-jupyter"></span> Jupyter</span><span class="project-tag">ML / Regression</span></div></div>
+        <div class="project-card" data-category="data"><div class="project-header"><div class="project-icon-wrap">&#128663;</div><div class="project-links"><a href="https://github.com/KajarnakLOKOSSOU2008/Pr-diction-du-prix-de-la-voiture-" target="_blank" class="project-link" title="GitHub">&#128279;</a></div></div><div class="project-body"><h3>Pr&eacute;diction Prix Voiture</h3><p>Mod&eacute;lisation pr&eacute;dictive par r&eacute;gression lin&eacute;aire pour estimer les prix automobiles.</p></div><div class="project-footer"><span class="project-tag"><span class="lang-dot lang-jupyter"></span> Jupyter</span><span class="project-tag">ML / Regression</span></div></div>
     </div>
 </section>
 
@@ -398,6 +460,54 @@ body { font-family:'Inter',sans-serif; background:var(--bg-primary); color:var(-
     </div>
     <div class="skills-container">
         <div class="skill-chip">&#128013; Python</div><div class="skill-chip">&#9889; JavaScript</div><div class="skill-chip">&#128307; TypeScript</div><div class="skill-chip">&#9881;&#65039; Node.js</div><div class="skill-chip">&#9883; React</div><div class="skill-chip">&#128640; Next.js</div><div class="skill-chip">&#127760; HTML / CSS</div><div class="skill-chip">&#129504; Machine Learning</div><div class="skill-chip">&#128065;&#65039; Computer Vision</div><div class="skill-chip">&#128202; Data Science</div><div class="skill-chip">&#128200; Pandas / NumPy</div><div class="skill-chip">&#129523; Scikit-learn</div><div class="skill-chip">&#128293; PyTorch</div><div class="skill-chip">&#128196; Jupyter</div><div class="skill-chip">&#128025; Git / GitHub</div><div class="skill-chip">&#128421;&#65039; Shell / Bash</div><div class="skill-chip">&#128736;&#65039; API REST</div><div class="skill-chip">&#128230; Docker</div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<div class="section-divider"></div>
+<section class="section reveal" id="testimonials">
+    <div class="section-header">
+        <span class="section-label">T&eacute;moignages</span>
+        <h2 class="section-title">Ce que disent nos clients</h2>
+        <p class="section-desc">La satisfaction de nos clients est notre plus grande fiert&eacute;.</p>
+    </div>
+    <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <span class="quote-mark">&ldquo;</span>
+            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>Kajarnak Tech a transform&eacute; notre fa&ccedil;on de travailler. Le chatbot IA qu'ils ont d&eacute;velopp&eacute; g&egrave;re maintenant 80% de nos demandes clients automatiquement. Un gain de temps consid&eacute;rable !</p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">A</div>
+                <div class="testimonial-author-info">
+                    <div class="name">Amadou Diallo</div>
+                    <div class="role">Directeur, TechSolutions B&eacute;nin</div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <span class="quote-mark">&ldquo;</span>
+            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>Le site web et l'application de gestion qu'ils ont cr&eacute;&eacute;s pour notre coop&eacute;rative agricole sont remarquables. Professionnel, rapide et &agrave; l'&eacute;coute de nos besoins sp&eacute;cifiques.</p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">M</div>
+                <div class="testimonial-author-info">
+                    <div class="name">Marie Hou&eacute;nou</div>
+                    <div class="role">Pr&eacute;sidente, CoopAgri B&eacute;nin</div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <span class="quote-mark">&ldquo;</span>
+            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>Gr&acirc;ce &agrave; leur expertise en data science, nous avons pu analyser nos donn&eacute;es de vente et identifier des opportunit&eacute;s de croissance que nous ne voyions pas. Je recommande vivement !</p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">K</div>
+                <div class="testimonial-author-info">
+                    <div class="name">Kofi Mensah</div>
+                    <div class="role">CEO, DataDrive Africa</div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -531,9 +641,121 @@ modeBtns.forEach(btn => {
     btn.addEventListener('click', () => switchMode(btn.dataset.view));
 });
 
-// Navbar scroll
+// Navbar scroll + scroll progress + scroll-to-top
 window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    
+    // Scroll progress bar
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    document.getElementById('scrollProgress').style.width = scrollPercent + '%';
+    
+    // Scroll to top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+});
+
+// Scroll to top click
+document.getElementById('scrollTop').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// TYPING ANIMATION
+const typingPhrases = [
+    'Développeur Fullstack',
+    'Ingénieur Intelligence Artificielle',
+    'Data Scientist',
+    'Fondateur de Kajarnak Tech'
+];
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typingSpeed = 80;
+
+function typeEffect() {
+    const subtitleEl = document.getElementById('heroSubtitle');
+    if (!subtitleEl) return;
+    
+    const currentPhrase = typingPhrases[phraseIndex];
+    
+    if (isDeleting) {
+        charIndex--;
+        typingSpeed = 40;
+    } else {
+        charIndex++;
+        typingSpeed = 80;
+    }
+    
+    const displayText = currentPhrase.substring(0, charIndex);
+    subtitleEl.innerHTML = '<span class="typing-text">' + displayText + '</span><span class="typing-cursor"></span>';
+    
+    if (!isDeleting && charIndex === currentPhrase.length) {
+        typingSpeed = 2000; // Pause at end
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % typingPhrases.length;
+        typingSpeed = 400; // Pause before new word
+    }
+    
+    setTimeout(typeEffect, typingSpeed);
+}
+
+// Start typing animation after page loads
+setTimeout(typeEffect, 1500);
+
+// ANIMATED COUNTERS
+let countersAnimated = false;
+function animateCounters() {
+    if (countersAnimated) return;
+    const counters = document.querySelectorAll('.stat-number[data-count]');
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-count'));
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            const suffix = target === 24 ? '+' : target === 100 ? '%' : '';
+            counter.textContent = Math.floor(current) + suffix;
+        }, 16);
+    });
+    countersAnimated = true;
+}
+
+// Observe stats section for counter animation
+const statsSection = document.querySelector('.about-stats');
+if (statsSection) {
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) animateCounters(); });
+    }, { threshold: 0.5 });
+    statsObserver.observe(statsSection);
+}
+
+// PROJECT FILTER TABS
+const filterTabs = document.querySelectorAll('.filter-tab');
+const projectCards = document.querySelectorAll('.project-card[data-category]');
+
+filterTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        filterTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        const filter = tab.dataset.filter;
+        projectCards.forEach(card => {
+            if (filter === 'all' || card.dataset.category === filter) {
+                card.classList.remove('hide');
+            } else {
+                card.classList.add('hide');
+            }
+        });
+    });
 });
 
 // Mobile menu
