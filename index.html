@@ -37,8 +37,8 @@ body { font-family:'Inter',sans-serif; background:var(--bg-primary); color:var(-
 .navbar { position:fixed; top:0; left:0; right:0; z-index:1000; padding:0 24px; height:70px; display:flex; align-items:center; justify-content:space-between; background:rgba(10,15,28,0.85); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); transition:var(--transition); }
 .navbar.scrolled { background:rgba(10,15,28,0.95); box-shadow:0 4px 30px rgba(0,0,0,0.3); }
 .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
-.nav-logo img { height:38px; width:38px; border-radius:50%; }
-.nav-logo-text { font-size:16px; font-weight:800; color:var(--accent); letter-spacing:-0.5px; }
+.nav-logo img { height:42px; width:42px; border-radius:50%; filter:brightness(1.15) drop-shadow(0 0 8px rgba(56,189,248,0.35)); }
+.nav-logo-text { font-size:17px; font-weight:800; color:var(--accent); letter-spacing:-0.5px; text-shadow:0 0 12px rgba(56,189,248,0.3); }
 .nav-logo-text span { color:var(--text-primary); font-weight:400; }
 .nav-center { display:flex; gap:4px; list-style:none; }
 .nav-center a { color:var(--text-secondary); text-decoration:none; font-size:13px; font-weight:500; padding:8px 14px; border-radius:8px; transition:var(--transition); }
@@ -66,8 +66,8 @@ body { font-family:'Inter',sans-serif; background:var(--bg-primary); color:var(-
 .hero-badge { display:inline-flex; align-items:center; gap:8px; padding:6px 16px; background:rgba(56,189,248,0.08); border:1px solid var(--border); border-radius:100px; font-size:13px; color:var(--accent); font-weight:500; margin-bottom:28px; animation:fadeInUp 0.8s ease forwards; }
 .hero-badge .dot { width:7px; height:7px; background:#34d399; border-radius:50%; animation:pulse 2s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
-.hero-photo { width:120px; height:120px; border-radius:50%; border:3px solid var(--accent); margin:0 auto 24px; object-fit:cover; box-shadow:0 0 30px var(--accent-glow); animation:fadeInUp 0.8s 0.05s ease both; }
-.hero-logo { width:90px; height:90px; border-radius:50%; border:3px solid var(--accent); margin:0 auto 24px; object-fit:cover; box-shadow:0 0 30px var(--accent-glow); animation:fadeInUp 0.8s 0.05s ease both; display:none; }
+.hero-photo { width:130px; height:130px; border-radius:50%; border:3px solid var(--accent); margin:0 auto 24px; object-fit:cover; box-shadow:0 0 40px var(--accent-glow), 0 0 80px rgba(56,189,248,0.15); animation:fadeInUp 0.8s 0.05s ease both; filter:brightness(1.1); }
+.hero-logo { width:110px; height:110px; border-radius:50%; border:3px solid var(--accent); margin:0 auto 24px; object-fit:cover; box-shadow:0 0 40px var(--accent-glow), 0 0 80px rgba(56,189,248,0.15); animation:fadeInUp 0.8s 0.05s ease both; display:none; filter:brightness(1.15) drop-shadow(0 0 10px rgba(56,189,248,0.4)); }
 .hero h1 { font-size:clamp(34px,7vw,68px); font-weight:900; letter-spacing:-2px; line-height:1.05; margin-bottom:20px; animation:fadeInUp 0.8s 0.15s ease both; }
 .hero h1 .gradient { background:var(--accent-grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 .hero .subtitle { font-size:clamp(15px,2.5vw,19px); color:var(--text-secondary); max-width:560px; margin:0 auto 36px; line-height:1.6; animation:fadeInUp 0.8s 0.3s ease both; }
@@ -159,8 +159,16 @@ body { font-family:'Inter',sans-serif; background:var(--bg-primary); color:var(-
 .form-group input, .form-group textarea { width:100%; padding:12px 16px; background:var(--bg-secondary); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-primary); font-size:14px; font-family:inherit; transition:var(--transition); outline:none; }
 .form-group input:focus, .form-group textarea:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-glow); }
 .form-group textarea { min-height:120px; resize:vertical; }
-.form-submit { width:100%; padding:13px; background:var(--accent-grad); color:#0a0f1c; font-size:14px; font-weight:700; border:none; border-radius:var(--radius-sm); cursor:pointer; font-family:inherit; transition:var(--transition); }
-.form-submit:hover { opacity:0.9; transform:translateY(-1px); }
+.form-buttons { display:flex; gap:10px; }
+.form-btn { flex:1; padding:13px; font-size:14px; font-weight:700; border:none; border-radius:var(--radius-sm); cursor:pointer; font-family:inherit; transition:var(--transition); display:flex; align-items:center; justify-content:center; gap:8px; }
+.form-btn:hover { transform:translateY(-1px); }
+.form-btn-email { background:var(--accent-grad); color:#0a0f1c; }
+.form-btn-email:hover { box-shadow:0 8px 25px var(--accent-glow); }
+.form-btn-whatsapp { background:#25D366; color:#fff; }
+.form-btn-whatsapp:hover { box-shadow:0 8px 25px rgba(37,211,102,0.3); }
+.form-status { margin-top:12px; padding:10px 16px; border-radius:var(--radius-sm); font-size:13px; font-weight:500; display:none; }
+.form-status.success { display:block; background:rgba(52,211,153,0.1); border:1px solid rgba(52,211,153,0.3); color:#34d399; }
+.form-status.error { display:block; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); color:#ef4444; }
 
 /* FOOTER */
 .footer { text-align:center; padding:40px 24px; border-top:1px solid var(--border); color:var(--text-muted); font-size:14px; }
@@ -375,11 +383,16 @@ body { font-family:'Inter',sans-serif; background:var(--bg-primary); color:var(-
         </div>
         <div class="contact-form-wrap">
             <h3>Envoyez-nous un message</h3>
-            <form id="contactForm" onsubmit="handleSubmit(event)">
-                <div class="form-group"><label for="name">Nom complet</label><input type="text" id="name" placeholder="Votre nom" required></div>
-                <div class="form-group"><label for="email">Email</label><input type="email" id="email" placeholder="votre@email.com" required></div>
-                <div class="form-group"><label for="message">Message</label><textarea id="message" placeholder="D&eacute;crivez votre projet..." required></textarea></div>
-                <button type="submit" class="form-submit">Envoyer le message &rarr;</button>
+            <form id="contactForm" onsubmit="handleEmailSubmit(event)">
+                <div class="form-group"><label for="name">Nom complet</label><input type="text" id="name" name="name" placeholder="Votre nom" required></div>
+                <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="votre@email.com" required></div>
+                <div class="form-group"><label for="subject">Sujet</label><input type="text" id="subject" name="subject" placeholder="Ex: Demande de devis, Projet web..."></div>
+                <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" placeholder="D&eacute;crivez votre projet..." required></textarea></div>
+                <div class="form-buttons">
+                    <button type="submit" class="form-btn form-btn-email" id="btnEmail">&#9993; Envoyer par Email</button>
+                    <button type="button" class="form-btn form-btn-whatsapp" onclick="handleWhatsApp()">&#128241; WhatsApp</button>
+                </div>
+                <div class="form-status" id="formStatus"></div>
             </form>
         </div>
     </div>
@@ -496,14 +509,79 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 reveals.forEach(el => revealObserver.observe(el));
 
-// Contact form
-function handleSubmit(e) {
+// Contact form — Email (via Web3Forms - free, no signup needed)
+function handleEmailSubmit(e) {
     e.preventDefault();
+    const status = document.getElementById('formStatus');
+    const btnEmail = document.getElementById('btnEmail');
+    btnEmail.textContent = 'Envoi en cours...';
+    btnEmail.disabled = true;
+
+    const formData = {
+        access_key: 'e6b4c7d1-a8f2-4e3d-9b5a-1c2d3e4f5a6b',
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value || 'Nouveau message depuis le portfolio',
+        message: document.getElementById('message').value,
+        from_name: 'Kajarnak Tech Portfolio',
+        redirect: 'https://kajarnaklokossou2008.github.io/kajarnak-portfolio/'
+    };
+
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            status.className = 'form-status success';
+            status.style.display = 'block';
+            status.innerHTML = '\u2713 Message envoy\u00e9 avec succ\u00e8s ! Nous vous r\u00e9pondrons rapidement par email.';
+            btnEmail.textContent = '\u2709 Envoy\u00e9 !';
+            document.getElementById('contactForm').reset();
+            setTimeout(() => { btnEmail.innerHTML = '\u2709 Envoyer par Email'; btnEmail.disabled = false; status.style.display = 'none'; }, 5000);
+        } else {
+            // Fallback: ouvrir le client email
+            fallbackMailto();
+        }
+    })
+    .catch(function(error) {
+        // Fallback: ouvrir le client email
+        fallbackMailto();
+        console.error('Form error:', error);
+    });
+}
+
+// Fallback email via mailto:
+function fallbackMailto() {
+    const status = document.getElementById('formStatus');
+    const btnEmail = document.getElementById('btnEmail');
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value || 'Nouveau message depuis le portfolio';
     const message = document.getElementById('message').value;
-    const waMessage = encodeURIComponent('Bonjour Kajarnak Tech !\n\nNom: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
-    window.open('https://wa.me/22943667604?text=' + waMessage, '_blank');
+    const body = 'Nom: ' + name + '\nEmail: ' + email + '\n\n' + message;
+    window.location.href = 'mailto:KajarnakTechIA@outlook.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    status.className = 'form-status success';
+    status.style.display = 'block';
+    status.innerHTML = 'Votre client email s\'est ouvert. Si rien ne se passe, envoyez directement un email \u00e0 KajarnakTechIA@outlook.com';
+    btnEmail.innerHTML = '\u2709 Envoyer par Email';
+    btnEmail.disabled = false;
+}
+
+// Contact form — WhatsApp
+function handleWhatsApp() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    let waText = 'Bonjour Kajarnak Tech !\n\n';
+    waText += 'Nom: ' + name + '\n';
+    waText += 'Email: ' + email + '\n';
+    if (subject) waText += 'Sujet: ' + subject + '\n';
+    waText += '\nMessage:\n' + message;
+    window.open('https://wa.me/22943667604?text=' + encodeURIComponent(waText), '_blank');
 }
 
 // Smooth scroll
