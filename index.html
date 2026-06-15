@@ -351,10 +351,64 @@ body { font-family:'Inter',sans-serif; background:var(--bg-primary); color:var(-
 /* AGENCY TAGLINE */
 .agency-tagline { text-align:center; padding:12px; background:rgba(56,189,248,0.05); border-top:1px solid var(--border); border-bottom:1px solid var(--border); font-size:13px; color:var(--accent); letter-spacing:3px; font-weight:600; text-transform:uppercase; }
 
+/* TRUST BAR */
+.trust-bar { display:flex; justify-content:center; gap:32px; flex-wrap:wrap; margin-top:24px; animation:fadeInUp 0.8s 0.7s ease both; }
+.trust-item { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text-secondary); font-weight:500; }
+.trust-item svg { width:16px; height:16px; fill:var(--green); flex-shrink:0; }
+
+/* PROCESS SECTION */
+.process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; position:relative; }
+.process-grid::before { content:''; position:absolute; top:40px; left:12.5%; right:12.5%; height:2px; background:linear-gradient(90deg,var(--accent),var(--accent2)); opacity:0.3; z-index:0; }
+.process-step { text-align:center; position:relative; z-index:1; }
+.process-number { width:56px; height:56px; display:flex; align-items:center; justify-content:center; background:var(--accent-grad); color:#0a0f1c; font-size:22px; font-weight:800; border-radius:50%; margin:0 auto 18px; box-shadow:0 8px 24px var(--accent-glow); }
+.process-step h3 { font-size:16px; font-weight:700; margin-bottom:8px; }
+.process-step p { font-size:13px; color:var(--text-secondary); line-height:1.7; max-width:220px; margin:0 auto; }
+
+/* PRICING SECTION */
+.pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.pricing-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:36px 28px; transition:var(--transition); position:relative; display:flex; flex-direction:column; }
+.pricing-card:hover { border-color:rgba(56,189,248,0.3); transform:translateY(-6px); box-shadow:0 24px 60px rgba(0,0,0,0.3); }
+.pricing-card.featured { border-color:var(--accent); box-shadow:0 0 40px var(--accent-glow); }
+.pricing-card.featured::before { content:'Populaire'; position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--accent-grad); color:#0a0f1c; font-size:12px; font-weight:700; padding:4px 16px; border-radius:100px; letter-spacing:0.5px; }
+.pricing-label { font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px; }
+.pricing-name { font-size:24px; font-weight:800; margin-bottom:6px; }
+.pricing-desc { font-size:13px; color:var(--text-muted); margin-bottom:20px; line-height:1.6; }
+.pricing-price { font-size:40px; font-weight:900; margin-bottom:4px; }
+.pricing-price span { font-size:16px; font-weight:400; color:var(--text-muted); }
+.pricing-period { font-size:12px; color:var(--text-muted); margin-bottom:24px; }
+.pricing-features { list-style:none; margin-bottom:28px; flex:1; }
+.pricing-features li { display:flex; align-items:flex-start; gap:10px; font-size:13.5px; color:var(--text-secondary); padding:8px 0; border-bottom:1px solid rgba(56,189,248,0.06); line-height:1.5; }
+.pricing-features li:last-child { border-bottom:none; }
+.pricing-features li svg { width:16px; height:16px; fill:var(--green); flex-shrink:0; margin-top:2px; }
+.pricing-features li.disabled { color:var(--text-muted); opacity:0.5; }
+.pricing-features li.disabled svg { fill:var(--text-muted); }
+.pricing-cta { display:block; text-align:center; padding:14px; font-size:14px; font-weight:700; border-radius:var(--radius-sm); text-decoration:none; transition:var(--transition); cursor:pointer; border:none; font-family:inherit; }
+.pricing-cta:hover { transform:translateY(-2px); }
+.pricing-cta-primary { background:var(--accent-grad); color:#0a0f1c; box-shadow:0 4px 20px var(--accent-glow); }
+.pricing-cta-primary:hover { box-shadow:0 8px 30px var(--accent-glow); }
+.pricing-cta-outline { background:transparent; color:var(--text-primary); border:1px solid var(--border); }
+.pricing-cta-outline:hover { border-color:var(--accent); color:var(--accent); }
+.pricing-note { text-align:center; font-size:13px; color:var(--text-muted); margin-top:28px; font-style:italic; }
+
+/* FAQ SECTION */
+.faq-list { max-width:760px; margin:0 auto; }
+.faq-item { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-sm); margin-bottom:12px; overflow:hidden; transition:var(--transition); }
+.faq-item:hover { border-color:rgba(56,189,248,0.2); }
+.faq-question { display:flex; align-items:center; justify-content:space-between; padding:18px 24px; cursor:pointer; font-size:15px; font-weight:600; color:var(--text-primary); background:none; border:none; width:100%; text-align:left; font-family:inherit; transition:var(--transition); }
+.faq-question:hover { color:var(--accent); }
+.faq-icon { width:20px; height:20px; fill:var(--accent); transition:transform 0.3s ease; flex-shrink:0; }
+.faq-item.open .faq-icon { transform:rotate(180deg); }
+.faq-answer { max-height:0; overflow:hidden; transition:max-height 0.4s ease, padding 0.3s ease; }
+.faq-item.open .faq-answer { max-height:300px; padding:0 24px 18px; }
+.faq-answer p { font-size:14px; color:var(--text-secondary); line-height:1.8; }
+
 @media (max-width:900px) {
     .about-grid,.contact-grid { grid-template-columns:1fr; }
     .about-visual { display:none; }
     .projects-grid { grid-template-columns:1fr; }
+    .pricing-grid { grid-template-columns:1fr; max-width:420px; margin-left:auto; margin-right:auto; }
+    .process-grid { grid-template-columns:repeat(2,1fr); }
+    .process-grid::before { display:none; }
 }
 @media (max-width:768px) {
     .nav-center { display:none; position:absolute; top:70px; left:0; right:0; flex-direction:column; background:rgba(10,15,28,0.98); backdrop-filter:blur(20px); padding:16px; border-bottom:1px solid var(--border); gap:4px; }
@@ -368,11 +422,15 @@ body { font-family:'Inter',sans-serif; background:var(--bg-primary); color:var(-
     .stat-item { padding:14px 8px; }
     .stat-number { font-size:22px; }
     .mode-switcher { display:none; }
+    .process-grid { grid-template-columns:1fr; }
+    .trust-bar { gap:16px; }
+    .trust-item { font-size:12px; }
 }
 @media (max-width:480px) {
     .hero-buttons { flex-direction:column; align-items:center; }
     .services-grid { grid-template-columns:1fr; }
     .contact-form-wrap { padding:20px; }
+    .pricing-card { padding:28px 20px; }
 }
 </style>
 </head>
@@ -398,7 +456,9 @@ body { font-family:'Inter',sans-serif; background:var(--bg-primary); color:var(-
         <li><a href="#about" data-mode="both">&Agrave; propos</a></li>
         <li><a href="#services" data-mode="agency">Services</a></li>
         <li><a href="#projects" data-mode="both">Projets</a></li>
-        <li><a href="#skills" data-mode="perso">Comp&eacute;tences</a></li>
+        <li><a href="#pricing" data-mode="both">Tarifs</a></li>
+        <li><a href="#process" data-mode="both">Processus</a></li>
+        <li><a href="#faq" data-mode="both">FAQ</a></li>
         <li><a href="#contact" data-mode="both">Contact</a></li>
     </ul>
     <div class="nav-right">
@@ -444,6 +504,13 @@ body { font-family:'Inter',sans-serif; background:var(--bg-primary); color:var(-
             <a href="https://wa.me/22943667604" target="_blank" title="WhatsApp" class="social-whatsapp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
             <a href="https://www.facebook.com/profile.php?id=61590436814429" target="_blank" title="Facebook" class="social-facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
             <a href="mailto:KajarnakTechIA@outlook.com" title="Email" class="social-email"><svg viewBox="0 0 24 24"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/></svg></a>
+        </div>
+        <!-- Trust bar -->
+        <div class="trust-bar">
+            <span class="trust-item"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg> R&eacute;ponse sous 24h</span>
+            <span class="trust-item"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg> Devis gratuit</span>
+            <span class="trust-item"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg> Disponible maintenant</span>
+            <span class="trust-item"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg> FR &bull; EN</span>
         </div>
     </div>
 </section>
@@ -591,6 +658,141 @@ body { font-family:'Inter',sans-serif; background:var(--bg-primary); color:var(-
                     <div class="role">CEO, DataDrive Africa</div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROCESS -->
+<div class="section-divider"></div>
+<section class="section reveal" id="process">
+    <div class="section-header">
+        <span class="section-label" id="processLabel">Processus</span>
+        <h2 class="section-title" id="processTitle">Comment on travaille ensemble</h2>
+        <p class="section-desc" id="processDesc">Un processus simple et transparent, de l'id&eacute;e au r&eacute;sultat.</p>
+    </div>
+    <div class="process-grid">
+        <div class="process-step">
+            <div class="process-number">1</div>
+            <h3>&Eacute;change &amp; Brief</h3>
+            <p>On discute de votre projet, vos objectifs, votre budget et vos d&eacute;lais. Premi&egrave;re consultation gratuite.</p>
+        </div>
+        <div class="process-step">
+            <div class="process-number">2</div>
+            <h3>Proposition &amp; Devis</h3>
+            <p>Je vous envoie une proposition d&eacute;taill&eacute;e avec le cahier des charges, les livrables et le planning.</p>
+        </div>
+        <div class="process-step">
+            <div class="process-number">3</div>
+            <h3>D&eacute;veloppement</h3>
+            <p>Je construis votre solution avec des mises &agrave; jour r&eacute;guli&egrave;res. Vous suivez l'avancement en temps r&eacute;el.</p>
+        </div>
+        <div class="process-step">
+            <div class="process-number">4</div>
+            <h3>Livraison &amp; Suivi</h3>
+            <p>Livraison avec documentation. Support post-livraison inclus pour vous garantir la tranquillit&eacute;.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<div class="section-divider"></div>
+<section class="section reveal" id="pricing">
+    <div class="section-header">
+        <span class="section-label" id="pricingLabel">Tarifs</span>
+        <h2 class="section-title" id="pricingTitle">Des offres pens&eacute;es pour votre r&eacute;ussite</h2>
+        <p class="section-desc" id="pricingDesc">Choisissez la formule qui correspond &agrave; vos ambitions. Chaque projet est unique, parlons-en !</p>
+    </div>
+    <div class="pricing-grid">
+        <!-- STARTER -->
+        <div class="pricing-card" id="pricingCard1">
+            <div class="pricing-label">Starter</div>
+            <div class="pricing-name" id="pricingName1">Essentiel</div>
+            <div class="pricing-desc" id="pricingDesc1">Id&eacute;al pour lancer votre pr&eacute;sence en ligne rapidement et professionnellement.</div>
+            <div class="pricing-price">150 <span>&euro;</span></div>
+            <div class="pricing-period">&agrave; partir de / projet</div>
+            <ul class="pricing-features" id="pricingFeatures1">
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Site vitrine responsive (1-3 pages)</li>
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Design moderne &amp; optimis&eacute; SEO</li>
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Formulaire de contact</li>
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> D&eacute;ploiement inclus</li>
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> 7 jours de support post-livraison</li>
+                <li class="disabled"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"/></svg> Int&eacute;gration IA</li>
+                <li class="disabled"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"/></svg> Dashboard admin</li>
+            </ul>
+            <a href="#contact" class="pricing-cta pricing-cta-outline">Discuter de mon projet</a>
+        </div>
+        <!-- PRO -->
+        <div class="pricing-card featured" id="pricingCard2">
+            <div class="pricing-label">Pro</div>
+            <div class="pricing-name" id="pricingName2">Professionnel</div>
+            <div class="pricing-desc" id="pricingDesc2">La solution compl&egrave;te pour les entreprises qui veulent se d&eacute;marquer.</div>
+            <div class="pricing-price">500 <span>&euro;</span></div>
+            <div class="pricing-period">&agrave; partir de / projet</div>
+            <ul class="pricing-features" id="pricingFeatures2">
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Application web compl&egrave;te (5-10 pages)</li>
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Backend + API + Base de donn&eacute;es</li>
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Dashboard d'administration</li>
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Authentification &amp; s&eacute;curit&eacute;</li>
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> SEO avanc&eacute; + Analytics</li>
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> 30 jours de support</li>
+                <li class="disabled"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"/></svg> Int&eacute;gration IA sur mesure</li>
+            </ul>
+            <a href="#contact" class="pricing-cta pricing-cta-primary">D&eacute;marrer mon projet</a>
+        </div>
+        <!-- PREMIUM -->
+        <div class="pricing-card" id="pricingCard3">
+            <div class="pricing-label">Premium</div>
+            <div class="pricing-name" id="pricingName3">Sur mesure</div>
+            <div class="pricing-desc" id="pricingDesc3">Pour les projets ambitieux n&eacute;cessitant IA, Data et innovation technologique.</div>
+            <div class="pricing-price">Sur devis</div>
+            <div class="pricing-period">prix d&eacute;fini ensemble</div>
+            <ul class="pricing-features" id="pricingFeatures3">
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Tout du plan Pro + ...</li>
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Int&eacute;gration IA (chatbot, pr&eacute;diction, NLP)</li>
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Data Science &amp; Visualisation</li>
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Architecture cloud scalable</li>
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> API &amp; automatisation</li>
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Support prioritaire 90 jours</li>
+                <li><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Accompagnement strat&eacute;gique</li>
+            </ul>
+            <a href="#contact" class="pricing-cta pricing-cta-outline">Parler de mon id&eacute;e</a>
+        </div>
+    </div>
+    <p class="pricing-note" id="pricingNote">Les prix sont indicatifs et adapt&eacute;s &agrave; chaque projet. Le devis est toujours gratuit et sans engagement.</p>
+</section>
+
+<!-- FAQ -->
+<div class="section-divider"></div>
+<section class="section reveal" id="faq">
+    <div class="section-header">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title">Questions fr&eacute;quentes</h2>
+        <p class="section-desc">Tout ce que vous devez savoir avant de d&eacute;marrer.</p>
+    </div>
+    <div class="faq-list">
+        <div class="faq-item">
+            <button class="faq-question">Quels types de projets acceptez-vous ?<svg class="faq-icon" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg></button>
+            <div class="faq-answer"><p>J'accepte les projets de d&eacute;veloppement web (sites vitrines, applications, e-commerce), d'intelligence artificielle (chatbots, classification, pr&eacute;diction, NLP), de data science (analyse, visualisation, mod&eacute;lisation) et d'automatisation. Que vous soyez startup, PME ou particulier, j'adapte ma proposition &agrave; vos besoins et votre budget.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Comment se d&eacute;roule la collaboration ?<svg class="faq-icon" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg></button>
+            <div class="faq-answer"><p>Tout commence par un &eacute;change gratuit pour comprendre votre besoin. Ensuite, je vous envoie un devis d&eacute;taill&eacute; avec les livrables et le planning. Pendant le d&eacute;veloppement, vous recevez des mises &agrave; jour r&eacute;guli&egrave;res. &Agrave; la livraison, vous b&eacute;n&eacute;ficiez d'une p&eacute;riode de support pour vous assurer que tout fonctionne parfaitement.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Quel est le d&eacute;lai moyen d'un projet ?<svg class="faq-icon" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg></button>
+            <div class="faq-answer"><p>Cela d&eacute;pend de la complexit&eacute; : un site vitrine peut &ecirc;tre livr&eacute; en 1-2 semaines, une application web en 3-6 semaines, et un projet IA/Data en 4-8 semaines. Chaque devis inclut un planning d&eacute;taill&eacute; avec des jalons clairs.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Proposez-vous un accompagnement apr&egrave;s la livraison ?<svg class="faq-icon" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg></button>
+            <div class="faq-answer"><p>Oui ! Chaque offre inclut une p&eacute;riode de support post-livraison (7 &agrave; 90 jours selon la formule). Au-del&agrave;, je propose des contrats de maintenance pour assurer la p&eacute;rennit&eacute; de votre solution. Votre satisfaction est ma priorit&eacute;.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Quelles m&eacute;thodes de paiement acceptez-vous ?<svg class="faq-icon" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg></button>
+            <div class="faq-answer"><p>J'accepte les virements bancaires, Mobile Money (M-Pesa, MTN), PayPal et les paiements par carte. Pour les projets importants, un &eacute;chelonnement en 2-3 versements est possible (30% &agrave; la commande, 40% &agrave; mi-parcours, 30% &agrave; la livraison).</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Puis-je vous contacter m&ecirc;me si mon projet est encore flou ?<svg class="faq-icon" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg></button>
+            <div class="faq-answer"><p>Absolument ! C'est m&ecirc;me conseill&eacute;. Je vous aide &agrave; structurer votre id&eacute;e et &agrave; d&eacute;finir les priorit&eacute;s. La premi&egrave;re consultation est gratuite et sans engagement. On avance &agrave; votre rythme, ensemble.</p></div>
         </div>
     </div>
 </section>
@@ -839,6 +1041,18 @@ filterTabs.forEach(tab => {
                 card.classList.add('hide');
             }
         });
+    });
+});
+
+// FAQ toggle
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const wasOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        // Toggle current
+        if (!wasOpen) item.classList.add('open');
     });
 });
 
